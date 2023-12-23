@@ -1,0 +1,23 @@
+{% extends "user/base.html"%}
+{%block body_block%}
+
+<h1>Sign in session</h1>
+{% if is_active %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="">
+    <input type="submit" value="Login">
+</form>
+{% else %}
+<h1>Your account is inactive.</h1>
+<h3>Contact support.</h3>
+{% endif %}
+
+{% if login_error %}
+<h1>Invalid username or password.</h1>
+<h3>Please try again</h3>
+{% endif %}
+{%endblock%}
